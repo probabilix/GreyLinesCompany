@@ -1,0 +1,398 @@
+import { RFQ, Quotation, PurchaseOrder, Invoice, Customer, Service, AutomationLog } from '@/types';
+
+export const MOCK_RFQS: RFQ[] = [
+  {
+    id: 'RFQ-2024-001',
+    customerName: 'Aramco Logistics',
+    customerEmail: 'procurement@aramco.com.sa',
+    subject: 'Warehouse Automation System',
+    serviceRequested: 'AI Solutions',
+    quantity: 1,
+    budget: 250000,
+    urgency: 'High',
+    date: '2024-05-10',
+    status: 'Approved',
+  },
+  {
+    id: 'RFQ-2024-002',
+    customerName: 'NEOM Construction',
+    customerEmail: 'info@neom.com',
+    subject: 'Interior Fit-out for HQ',
+    serviceRequested: 'Advertising & Interior Fit-outs',
+    quantity: 5,
+    budget: 1200000,
+    urgency: 'Critical',
+    date: '2024-05-11',
+    status: 'Quotation Sent',
+  },
+  {
+    id: 'RFQ-2024-003',
+    customerName: 'Al Rajhi Bank',
+    customerEmail: 'it-support@alrajhibank.com.sa',
+    subject: 'Data Center Cooling Services',
+    serviceRequested: 'Technology & IT',
+    quantity: 12,
+    budget: 450000,
+    urgency: 'Medium',
+    date: '2024-05-12',
+    status: 'RFQ Received',
+  },
+  {
+    id: 'RFQ-2024-004',
+    customerName: 'Sabic Global',
+    customerEmail: 'supply-chain@sabic.com',
+    subject: 'Inventory Optimization AI',
+    serviceRequested: 'AI Solutions',
+    quantity: 1,
+    budget: 380000,
+    urgency: 'Medium',
+    date: '2024-05-13',
+    status: 'RFQ Received',
+  },
+  {
+    id: 'RFQ-2024-005',
+    customerName: 'Riyadh Metro Project',
+    customerEmail: 'ops@riyadhmetro.sa',
+    subject: 'Station Signage & Branding',
+    serviceRequested: 'Advertising & Interior Fit-outs',
+    quantity: 24,
+    budget: 950000,
+    urgency: 'High',
+    date: '2024-05-14',
+    status: 'Under Review',
+  },
+];
+
+export const MOCK_QUOTATIONS: Quotation[] = [
+  {
+    id: 'QT-8821',
+    rfqId: 'RFQ-2024-001',
+    customerName: 'Aramco Logistics',
+    customerEmail: 'procurement@aramco.com.sa',
+    amount: 245000,
+    status: 'Approved',
+    revisionNumber: 2,
+    approvalProbability: 95,
+    generatedDate: '2024-05-11',
+    items: [
+      { description: 'AI Logic Core', quantity: 1, unitPrice: 150000, total: 150000 },
+      { description: 'Installation & Tuning', quantity: 1, unitPrice: 95000, total: 95000 },
+    ],
+  },
+  {
+    id: 'QT-8822',
+    rfqId: 'RFQ-2024-002',
+    customerName: 'NEOM Construction',
+    customerEmail: 'info@neom.com',
+    amount: 1150000,
+    status: 'Sent',
+    revisionNumber: 0,
+    approvalProbability: 75,
+    generatedDate: '2024-05-12',
+    items: [
+      { description: 'Interior Design Package', quantity: 1, unitPrice: 1150000, total: 1150000 },
+    ],
+  },
+  {
+    id: 'QT-8823',
+    rfqId: 'RFQ-2024-003',
+    customerName: 'Al Rajhi Bank',
+    customerEmail: 'it-support@alrajhibank.com.sa',
+    amount: 445000,
+    status: 'Draft',
+    revisionNumber: 1,
+    approvalProbability: 60,
+    generatedDate: '2024-05-13',
+    items: [
+      { description: 'Data Center AI Optimization', quantity: 1, unitPrice: 445000, total: 445000 },
+    ],
+  },
+  {
+    id: 'QT-8824',
+    rfqId: 'RFQ-2024-004',
+    customerName: 'Sabic Global',
+    customerEmail: 'supply-chain@sabic.com',
+    amount: 375000,
+    status: 'Sent',
+    revisionNumber: 0,
+    approvalProbability: 85,
+    generatedDate: '2024-05-14',
+    items: [
+      { description: 'Inventory AI Engine', quantity: 1, unitPrice: 375000, total: 375000 },
+    ],
+  },
+];
+
+export const MOCK_INVOICES: Invoice[] = [
+  { id: 'INV-4401', invoiceNumber: 'GL-2024-4401', customerEmail: 'finance@aramco.com.sa', amount: 245000, dueDate: '2024-06-11', status: 'Pending', paymentStatus: 'Unpaid', issuedDate: '2024-05-11' },
+  { id: 'INV-4402', invoiceNumber: 'GL-2024-4402', customerEmail: 'accounts@stc.com.sa', amount: 85000, dueDate: '2024-05-01', status: 'Overdue', paymentStatus: 'Unpaid', issuedDate: '2024-04-01' },
+  { id: 'INV-4403', invoiceNumber: 'GL-2024-4403', customerEmail: 'billing@neom.com', amount: 500000, dueDate: '2024-06-20', status: 'Draft', paymentStatus: 'Unpaid', issuedDate: '2024-05-14' },
+  { id: 'INV-4404', invoiceNumber: 'GL-2024-4404', customerEmail: 'procurement@maaden.com.sa', amount: 125000, dueDate: '2024-05-25', status: 'Paid', paymentStatus: 'Paid', issuedDate: '2024-04-25' },
+  { id: 'INV-4405', invoiceNumber: 'GL-2024-4405', customerEmail: 'info@almarai.com', amount: 45000, dueDate: '2024-06-05', status: 'Pending', paymentStatus: 'Unpaid', issuedDate: '2024-05-05' },
+  { id: 'INV-4406', invoiceNumber: 'GL-2024-4406', customerEmail: 'it-support@alrajhibank.com.sa', amount: 95000, dueDate: '2024-05-15', status: 'Overdue', paymentStatus: 'Partial', issuedDate: '2024-04-15' },
+  { id: 'INV-4407', invoiceNumber: 'GL-2024-4407', customerEmail: 'supply-chain@sabic.com', amount: 375000, dueDate: '2024-07-10', status: 'Draft', paymentStatus: 'Unpaid', issuedDate: '2024-05-14' },
+  { id: 'INV-4408', invoiceNumber: 'GL-2024-4408', customerEmail: 'ops@riyadhmetro.sa', amount: 210000, dueDate: '2024-06-15', status: 'Pending', paymentStatus: 'Unpaid', issuedDate: '2024-05-15' },
+  { id: 'INV-4409', invoiceNumber: 'GL-2024-4409', customerEmail: 'accounts@aramco.com.sa', amount: 890000, dueDate: '2024-05-30', status: 'Paid', paymentStatus: 'Paid', issuedDate: '2024-04-30' },
+  { id: 'INV-4410', invoiceNumber: 'GL-2024-4410', customerEmail: 'finance@stc.com.sa', amount: 120000, dueDate: '2024-06-12', status: 'Pending', paymentStatus: 'Unpaid', issuedDate: '2024-05-12' },
+];
+
+export const MOCK_PURCHASE_ORDERS: PurchaseOrder[] = [
+  {
+    id: 'PO-9901', poNumber: 'PO-ARAMCO-001', customerName: 'Saudi Aramco', quotationId: 'QT-8821', amount: 245000, status: 'Acknowledged', date: '2024-05-12',
+    timeline: [{ status: 'Draft', date: '2024-05-11', completed: true }, { status: 'Sent for Approval', date: '2024-05-12', completed: true }, { status: 'Acknowledged', date: '2024-05-12', completed: true }]
+  },
+  {
+    id: 'PO-9902', poNumber: 'PO-STC-242', customerName: 'STC', quotationId: 'QT-8819', amount: 85000, status: 'Processing', date: '2024-05-13',
+    timeline: [{ status: 'Draft', date: '2024-05-12', completed: true }, { status: 'Processing', date: '2024-05-13', completed: true }]
+  },
+  {
+    id: 'PO-9903', poNumber: 'PO-MAADEN-771', customerName: 'Maaden', quotationId: 'QT-8815', amount: 125000, status: 'Pending', date: '2024-05-14',
+    timeline: [{ status: 'Draft', date: '2024-05-14', completed: true }]
+  },
+  {
+    id: 'PO-9904', poNumber: 'PO-NEOM-102', customerName: 'NEOM Construction', quotationId: 'QT-8822', amount: 1150000, status: 'Completed', date: '2024-05-10',
+    timeline: [{ status: 'Draft', date: '2024-05-05', completed: true }, { status: 'Acknowledged', date: '2024-05-06', completed: true }, { status: 'Completed', date: '2024-05-10', completed: true }]
+  },
+  {
+    id: 'PO-9905', poNumber: 'PO-ALMARAI-005', customerName: 'Almarai', quotationId: 'QT-8812', amount: 45000, status: 'Pending', date: '2024-05-15',
+    timeline: [{ status: 'Draft', date: '2024-05-15', completed: true }]
+  },
+  {
+    id: 'PO-9906', poNumber: 'PO-ALRAJHI-442', customerName: 'Al Rajhi Bank', quotationId: 'QT-8823', amount: 445000, status: 'Acknowledged', date: '2024-05-14',
+    timeline: [{ status: 'Draft', date: '2024-05-13', completed: true }, { status: 'Acknowledged', date: '2024-05-14', completed: true }]
+  },
+  {
+    id: 'PO-9907', poNumber: 'PO-SABIC-901', customerName: 'Sabic Global', quotationId: 'QT-8824', amount: 375000, status: 'Processing', date: '2024-05-15',
+    timeline: [{ status: 'Draft', date: '2024-05-14', completed: true }, { status: 'Processing', date: '2024-05-15', completed: true }]
+  },
+  {
+    id: 'PO-9908', poNumber: 'PO-METRO-112', customerName: 'Riyadh Metro', quotationId: 'QT-8810', amount: 950000, status: 'Pending', date: '2024-05-16',
+    timeline: [{ status: 'Draft', date: '2024-05-16', completed: true }]
+  },
+  {
+    id: 'PO-9909', poNumber: 'PO-ARAMCO-005', customerName: 'Saudi Aramco', quotationId: 'QT-8805', amount: 560000, status: 'Completed', date: '2024-05-08',
+    timeline: [{ status: 'Draft', date: '2024-05-01', completed: true }, { status: 'Completed', date: '2024-05-08', completed: true }]
+  },
+  {
+    id: 'PO-9910', poNumber: 'PO-STC-301', customerName: 'STC', quotationId: 'QT-8801', amount: 120000, status: 'Acknowledged', date: '2024-05-14',
+    timeline: [{ status: 'Draft', date: '2024-05-13', completed: true }, { status: 'Acknowledged', date: '2024-05-14', completed: true }]
+  },
+];
+
+export const MOCK_CUSTOMERS: Customer[] = [
+  {
+    id: 'CUST-001',
+    name: 'Aramco',
+    email: 'contact@aramco.com.sa',
+    phone: '+966 13 872 0115',
+    company: 'Saudi Aramco',
+    totalQuotations: 12,
+    invoicesGenerated: 8,
+    revenueGenerated: 4500000,
+    paymentStatus: 'Good',
+    lastInteraction: '2024-05-12',
+    healthScore: 98,
+  },
+  {
+    id: 'CUST-002',
+    name: 'STC',
+    email: 'info@stc.com.sa',
+    phone: '+966 11 455 5555',
+    company: 'Saudi Telecom Company',
+    totalQuotations: 5,
+    invoicesGenerated: 4,
+    revenueGenerated: 1200000,
+    paymentStatus: 'Fair',
+    lastInteraction: '2024-05-10',
+    healthScore: 82,
+  },
+  {
+    id: 'CUST-003',
+    name: 'Maaden',
+    email: 'procurement@maaden.com.sa',
+    phone: '+966 11 874 8000',
+    company: 'Saudi Arabian Mining Co.',
+    totalQuotations: 8,
+    invoicesGenerated: 6,
+    revenueGenerated: 2800000,
+    paymentStatus: 'Good',
+    lastInteraction: '2024-05-13',
+    healthScore: 91,
+  },
+  {
+    id: 'CUST-004',
+    name: 'Almarai',
+    email: 'info@almarai.com',
+    phone: '+966 11 470 0005',
+    company: 'Almarai Company',
+    totalQuotations: 3,
+    invoicesGenerated: 2,
+    revenueGenerated: 650000,
+    paymentStatus: 'Fair',
+    lastInteraction: '2024-05-14',
+    healthScore: 78,
+  },
+];
+
+export const MOCK_SERVICES: Service[] = [
+  {
+    id: 'SVC-001',
+    name: 'Predictive Warehouse AI',
+    category: 'AI Solutions',
+    price: 150000,
+    timeline: '3-4 Months',
+    keywords: ['AI', 'Logistics', 'Automation'],
+    active: true,
+  },
+  {
+    id: 'SVC-002',
+    name: 'Luxury Office Fit-out',
+    category: 'Advertising & Interior Fit-outs',
+    price: 500000,
+    timeline: '6 Months',
+    keywords: ['Interior', 'Design', 'Luxury'],
+    active: true,
+  },
+  {
+    id: 'SVC-003',
+    name: 'Cloud Infrastructure Setup',
+    category: 'Technology & IT',
+    price: 85000,
+    timeline: '2 Months',
+    keywords: ['Cloud', 'Infrastructure', 'Scaling'],
+    active: true,
+  },
+  {
+    id: 'SVC-004',
+    name: 'Autonomous Forklift Fleet',
+    category: 'Logistics & Warehousing',
+    price: 450000,
+    timeline: '8 Months',
+    keywords: ['Robotics', 'Automation', 'Warehouse'],
+    active: true,
+  },
+  {
+    id: 'SVC-005',
+    name: 'Demand Forecasting Engine',
+    category: 'AI Solutions',
+    price: 120000,
+    timeline: '3 Months',
+    keywords: ['AI', 'Big Data', 'Prediction'],
+    active: true,
+  },
+  {
+    id: 'SVC-006',
+    name: 'Enterprise Brand Activation',
+    category: 'Events & Brand Activations',
+    price: 250000,
+    timeline: '4 Months',
+    keywords: ['Marketing', 'Branding', 'Events'],
+    active: true,
+  },
+  {
+    id: 'SVC-007',
+    name: 'Cybersecurity Audit & Hardening',
+    category: 'Technology & IT',
+    price: 65000,
+    timeline: '1 Month',
+    keywords: ['Security', 'Audit', 'Compliance'],
+    active: true,
+  },
+  {
+    id: 'SVC-008',
+    name: 'Smart Retail Display Systems',
+    category: 'Advertising & Interior Fit-outs',
+    price: 180000,
+    timeline: '3 Months',
+    keywords: ['Retail', 'Display', 'Smart Tech'],
+    active: true,
+  },
+  {
+    id: 'SVC-009',
+    name: 'Global Supply Chain Control Tower',
+    category: 'Logistics & Warehousing',
+    price: 750000,
+    timeline: '12 Months',
+    keywords: ['Supply Chain', 'Global', 'Management'],
+    active: true,
+  },
+];
+
+export const MOCK_LOGS: AutomationLog[] = [
+  {
+    id: 'LOG-001',
+    timestamp: '2024-05-12T10:30:00Z',
+    type: 'Email Received',
+    description: 'New RFQ received from Al Rajhi Bank',
+    status: 'Success',
+    confidenceScore: 0.99,
+    metadata: { source: 'gmail', sender: 'it-support@alrajhibank.com.sa' },
+  },
+  {
+    id: 'LOG-002',
+    timestamp: '2024-05-12T10:32:00Z',
+    type: 'Classification',
+    description: 'RFQ classified as Technology & IT',
+    status: 'Success',
+    confidenceScore: 0.95,
+    metadata: { category: 'Technology & IT' },
+  },
+  {
+    id: 'LOG-003',
+    timestamp: '2024-05-12T10:35:00Z',
+    type: 'Quotation Generated',
+    description: 'Draft quotation QT-8823 generated automatically',
+    status: 'Success',
+    confidenceScore: 0.88,
+    metadata: { quotationId: 'QT-8823' },
+  },
+  {
+    id: 'LOG-004',
+    timestamp: '2024-05-12T11:05:00Z',
+    type: 'Email Received',
+    description: 'RFQ received from Sabic Global regarding Inventory AI',
+    status: 'Success',
+    confidenceScore: 0.98,
+    metadata: { source: 'outlook', sender: 'supply-chain@sabic.com' },
+  },
+  {
+    id: 'LOG-005',
+    timestamp: '2024-05-12T11:10:00Z',
+    type: 'Extraction',
+    description: 'Extracted budget details: $380,000 for Inventory Optimization',
+    status: 'Success',
+    confidenceScore: 0.92,
+    metadata: {},
+  },
+  {
+    id: 'LOG-006',
+    timestamp: '2024-05-12T11:45:00Z',
+    type: 'Reminder Sent',
+    description: 'Payment reminder sent to stc.com.sa for INV-4402',
+    status: 'Success',
+    confidenceScore: 1.0,
+    metadata: {},
+  },
+  {
+    id: 'LOG-007',
+    timestamp: '2024-05-12T12:15:00Z',
+    type: 'Invoice Generated',
+    description: 'Generated Invoice GL-2024-4403 for Aramco',
+    status: 'Success',
+    confidenceScore: 0.97,
+    metadata: {},
+  },
+];
+
+export const MOCK_STATS = {
+  totalRfqs: 482,
+  quotationsSent: 415,
+  quotationsApproved: 312,
+  revisionRequests: 45,
+  invoicesGenerated: 284,
+  pendingPayments: 38,
+  revenueGenerated: 18450000,
+  conversionRate: 72.8,
+  automationSuccessRate: 96.4,
+  activeCustomers: 124,
+};
