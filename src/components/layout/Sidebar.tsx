@@ -36,11 +36,21 @@ export function Sidebar() {
 
   return (
     <aside className="w-64 h-screen bg-dark-charcoal border-r border-border-subtle flex flex-col fixed left-0 top-0 z-50">
-      <div className="p-6 flex items-center gap-3">
-        <div className="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center">
-          <Zap className="text-white w-5 h-5 fill-white" />
-        </div>
-        <span className="text-xl font-bold tracking-tight text-white">Greyline</span>
+      <div className="p-5 flex items-center gap-3 border-b border-border-subtle/50">
+        <Link href="/" className="flex items-center gap-3 w-full">
+          <img 
+            src="https://res.cloudinary.com/deahibe46/image/upload/v1778151329/ChatGPT_Image_May_4_2026_04_39_57_PM_rw36mp.png" 
+            alt="Logo" 
+            className="w-12 h-12 object-contain rounded-xl shadow-lg shadow-brand-blue/10"
+          />
+          <div className="flex flex-col">
+            <h1 className="text-[26px] font-black tracking-tighter leading-none">
+              <span className="text-gray-400">Grey</span>
+              <span className="text-brand-blue">line</span>
+            </h1>
+            <span className="text-[10px] font-extrabold text-gray-500 tracking-[0.2em] uppercase mt-0.5">Group</span>
+          </div>
+        </Link>
       </div>
 
       <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">

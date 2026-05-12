@@ -16,6 +16,7 @@ export function Navbar() {
             type="text" 
             placeholder="Search quotations, RFQs, or customers..." 
             className="w-full bg-white/5 border border-border-subtle rounded-full py-1.5 pl-10 pr-4 text-sm focus:outline-none focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/20 transition-all"
+            suppressHydrationWarning
           />
         </div>
         
