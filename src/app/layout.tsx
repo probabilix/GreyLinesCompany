@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Greyline Group | AI Automation Dashboard",
   description: "Enterprise-grade AI automation platform for quotations, invoicing, and workflow management.",
+  icons: {
+    icon: "https://res.cloudinary.com/deahibe46/image/upload/v1778151329/ChatGPT_Image_May_4_2026_04_39_57_PM_rw36mp.png",
+  }
 };
 
 export default function RootLayout({

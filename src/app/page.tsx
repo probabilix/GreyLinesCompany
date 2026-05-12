@@ -91,7 +91,10 @@ export default function DashboardPage() {
               <h3 className="text-lg font-bold text-white">Revenue Growth</h3>
               <p className="text-xs text-gray-500">Monthly revenue trends across all divisions</p>
             </div>
-            <select className="bg-white/5 border border-border-subtle rounded-md px-3 py-1 text-xs focus:outline-none">
+            <select 
+              className="bg-white/5 border border-border-subtle rounded-md px-3 py-1 text-xs focus:outline-none"
+              suppressHydrationWarning
+            >
               <option>Last 7 Months</option>
               <option>Last Year</option>
             </select>
