@@ -24,19 +24,19 @@ const AnalyticsCharts = dynamic(() => import('@/components/dashboard/AnalyticsCh
 export default function AnalyticsPage() {
   return (
     <div className="space-y-8 pb-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-1">Business <span className="text-brand-blue">Intelligence</span></h1>
-          <p className="text-gray-500 text-sm">Deep insights into conversion funnels and divisional performance.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">Business <span className="text-brand-blue">Intelligence</span></h1>
+          <p className="text-gray-500 text-sm">Deep insights into conversion and performance.</p>
         </div>
         <div className="flex items-center gap-3">
-          <button className="px-4 py-2 bg-white/5 border border-border-subtle rounded-lg text-sm font-medium flex items-center gap-2 hover:bg-white/10 transition-all">
+          <button className="flex-1 sm:flex-none px-4 py-2 bg-white/5 border border-border-subtle rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-white/10 transition-all">
             <Calendar className="w-4 h-4" />
-            This Quarter
+            <span className="whitespace-nowrap">This Quarter</span>
           </button>
-          <button className="px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-blue-600 transition-all">
+          <button className="flex-1 sm:flex-none px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-blue-600 transition-all shadow-lg shadow-brand-blue/20">
             <Filter className="w-4 h-4" />
-            Advanced Filters
+            <span className="whitespace-nowrap">Filters</span>
           </button>
         </div>
       </div>

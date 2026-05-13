@@ -25,21 +25,21 @@ const DivisionPieChart = dynamic(() => import('@/components/dashboard/Charts').t
 export default function DashboardPage() {
   return (
     <div className="space-y-8 pb-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-1">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">
             Dashboard <span className="text-brand-blue">Overview</span>
           </h1>
-          <p className="text-gray-500 text-sm">Welcome back. Here's what's happening with Greyline AI today.</p>
+          <p className="text-gray-500 text-sm">Welcome back. Here's what's happening today.</p>
         </div>
         
         <div className="flex items-center gap-3">
-          <button className="px-4 py-2 bg-white/5 border border-border-subtle rounded-lg text-sm font-medium hover:bg-white/10 transition-all flex items-center gap-2">
+          <button className="flex-1 sm:flex-none px-4 py-2 bg-white/5 border border-border-subtle rounded-lg text-sm font-medium hover:bg-white/10 transition-all flex items-center justify-center gap-2">
             <RefreshCw className="w-4 h-4" />
-            Sync Logs
+            <span className="whitespace-nowrap">Sync Logs</span>
           </button>
-          <button className="px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-all shadow-lg shadow-brand-blue/20 flex items-center gap-2">
-            Generate Report
+          <button className="flex-1 sm:flex-none px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-all shadow-lg shadow-brand-blue/20 flex items-center justify-center gap-2">
+            <span className="whitespace-nowrap">Generate Report</span>
             <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
@@ -175,7 +175,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Quick Insights */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="premium-card p-6 flex flex-col justify-between bg-gradient-to-br from-brand-blue/10 to-transparent">
             <div>
               <Zap className="w-8 h-8 text-brand-blue mb-4" />
@@ -204,15 +204,15 @@ export default function DashboardPage() {
             </button>
           </div>
 
-          <div className="premium-card col-span-2 p-6 flex items-center gap-6">
-            <div className="w-16 h-16 rounded-full border-4 border-brand-blue/20 border-t-brand-blue flex items-center justify-center">
+          <div className="premium-card sm:col-span-2 p-6 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+            <div className="w-16 h-16 shrink-0 rounded-full border-4 border-brand-blue/20 border-t-brand-blue flex items-center justify-center">
               <span className="text-sm font-bold text-white">88%</span>
             </div>
-            <div>
+            <div className="flex-1">
               <h4 className="font-bold text-white">Monthly Target</h4>
               <p className="text-xs text-gray-400">You are $120k away from your quarterly goal of $1.5M.</p>
             </div>
-            <button className="ml-auto px-4 py-2 bg-white/5 border border-border-subtle rounded-lg text-xs font-medium hover:bg-white/10 transition-all">
+            <button className="w-full sm:w-auto px-4 py-2 bg-white/5 border border-border-subtle rounded-lg text-xs font-medium hover:bg-white/10 transition-all">
               Update Goal
             </button>
           </div>

@@ -19,12 +19,12 @@ import { cn, formatCurrency, formatDate } from '@/lib/utils';
 export default function QuotationsPage() {
   return (
     <div className="space-y-8 pb-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-1">Quotations</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">Quotations</h1>
           <p className="text-gray-500 text-sm">Manage AI-generated and manual quotations.</p>
         </div>
-        <button className="px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-all shadow-lg shadow-brand-blue/20 flex items-center gap-2">
+        <button className="w-full sm:w-auto px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-all shadow-lg shadow-brand-blue/20 flex items-center justify-center gap-2">
           Create New Quotation
         </button>
       </div>
