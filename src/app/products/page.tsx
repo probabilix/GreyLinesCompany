@@ -27,15 +27,15 @@ export default function ProductsPage() {
 
   return (
     <div className="space-y-8 pb-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-1">Products & <span className="text-brand-blue">Services</span></h1>
-          <p className="text-gray-500 text-sm">Manage your service catalog and automated pricing tiers.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">Products & <span className="text-brand-blue">Services</span></h1>
+          <p className="text-gray-500 text-sm">Manage your catalog and automated pricing.</p>
         </div>
         
-        <button className="px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-blue-600 transition-all shadow-lg shadow-brand-blue/20">
+        <button className="w-full sm:w-auto px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-blue-600 transition-all shadow-lg shadow-brand-blue/20">
             <Plus className="w-4 h-4" />
-            Add Service
+            <span className="whitespace-nowrap">Add Service</span>
         </button>
       </div>
 

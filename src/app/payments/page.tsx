@@ -23,21 +23,21 @@ export default function PaymentsPage() {
 
   return (
     <div className="space-y-8 pb-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-1 flex items-center gap-3">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1 flex items-center gap-3">
               <MessageSquare className="text-brand-blue" />
               Payment <span className="text-brand-blue">Follow-ups</span>
           </h1>
-          <p className="text-gray-500 text-sm">Automated AI reminder system and collection probability tracking.</p>
+          <p className="text-gray-500 text-sm">Automated AI reminder system and probability tracking.</p>
         </div>
         
-        <div className="flex items-center gap-3">
-            <div className="px-3 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue border border-brand-blue/20 text-xs font-bold flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-3">
+            <div className="px-3 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue border border-brand-blue/20 text-[10px] font-bold flex items-center gap-2">
                 <Zap className="w-3 h-3 fill-brand-blue" />
                 Auto-reminders Active
             </div>
-            <button className="px-4 py-2 bg-white/5 border border-border-subtle rounded-lg text-sm font-medium hover:bg-white/10 transition-all">
+            <button className="flex-1 sm:flex-none px-4 py-2 bg-white/5 border border-border-subtle rounded-lg text-sm font-medium hover:bg-white/10 transition-all whitespace-nowrap">
                 Export Aging Report
             </button>
         </div>
@@ -83,7 +83,7 @@ export default function PaymentsPage() {
               {followUpData.map((inv, idx) => (
                   <div
                     key={inv.id}
-                    className="premium-card p-6 flex flex-col md:flex-row gap-6 relative group overflow-hidden animate-fade-in"
+                    className="premium-card p-4 sm:p-6 flex flex-col gap-6 relative group overflow-hidden animate-fade-in"
                   >
                       <div className="flex-1">
                           <div className="flex items-center gap-3 mb-4">

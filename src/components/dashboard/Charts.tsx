@@ -50,6 +50,7 @@ export function RevenueChart() {
             tickFormatter={(value) => `$${value}`}
           />
           <Tooltip 
+            trigger="click"
             contentStyle={{ backgroundColor: '#111', border: '1px solid #333', borderRadius: '8px' }}
             itemStyle={{ color: '#fff' }}
           />
@@ -86,6 +87,7 @@ export function DivisionPieChart() {
             ))}
           </Pie>
           <Tooltip 
+             trigger="click"
              contentStyle={{ backgroundColor: '#111', border: '1px solid #333', borderRadius: '8px' }}
              itemStyle={{ color: '#fff' }}
           />

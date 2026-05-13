@@ -22,24 +22,24 @@ import { cn, formatCurrency, formatDate } from '@/lib/utils';
 export default function CustomersPage() {
   return (
     <div className="space-y-8 pb-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-1">Customer <span className="text-brand-blue">Portfolio</span></h1>
-          <p className="text-gray-500 text-sm">Manage enterprise relationships and track customer lifecycle value.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">Customer <span className="text-brand-blue">Portfolio</span></h1>
+          <p className="text-gray-500 text-sm">Manage enterprise relationships and track value.</p>
         </div>
         
-        <div className="flex items-center gap-3">
-            <div className="relative group">
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            <div className="relative group w-full sm:w-64">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-brand-blue" />
                 <input 
                     type="text" 
                     placeholder="Search accounts..." 
-                    className="bg-white/5 border border-border-subtle rounded-lg py-1.5 pl-10 pr-4 text-sm focus:outline-none focus:border-brand-blue/50 w-64 transition-all"
+                    className="w-full bg-white/5 border border-border-subtle rounded-lg py-1.5 pl-10 pr-4 text-sm focus:outline-none focus:border-brand-blue/50 transition-all"
                 />
             </div>
-            <button className="px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-blue-600 transition-all">
+            <button className="w-full sm:w-auto px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-blue-600 transition-all shadow-lg shadow-brand-blue/20">
                 <Plus className="w-4 h-4" />
-                Add Customer
+                <span className="whitespace-nowrap">Add Customer</span>
             </button>
         </div>
       </div>

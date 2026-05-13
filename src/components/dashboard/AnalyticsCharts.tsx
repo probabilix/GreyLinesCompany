@@ -52,6 +52,7 @@ export default function AnalyticsCharts() {
                 width={100}
               />
               <Tooltip 
+                trigger="click"
                 contentStyle={{ backgroundColor: '#111', border: '1px solid #333', borderRadius: '8px' }}
                 itemStyle={{ color: '#fff' }}
               />
@@ -79,6 +80,7 @@ export default function AnalyticsCharts() {
                 <XAxis dataKey="name" stroke="#666" fontSize={12} tickLine={false} axisLine={false} />
                 <YAxis stroke="#666" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v/1000000}M`} />
                 <Tooltip 
+                  trigger="click"
                   contentStyle={{ backgroundColor: '#111', border: '1px solid #333', borderRadius: '8px' }}
                   formatter={(v) => formatCurrency(Number(v))}
                 />
@@ -106,7 +108,7 @@ export default function AnalyticsCharts() {
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#222" />
                 <XAxis dataKey="m" stroke="#666" fontSize={12} tickLine={false} axisLine={false} />
                 <YAxis stroke="#666" fontSize={12} tickLine={false} axisLine={false} />
-                <Tooltip contentStyle={{ backgroundColor: '#111', border: '1px solid #333' }} />
+                <Tooltip trigger="click" contentStyle={{ backgroundColor: '#111', border: '1px solid #333' }} />
                 <Area type="monotone" dataKey="v" stroke="#10b981" fill="url(#colorAcq)" strokeWidth={3} />
               </AreaChart>
             </ResponsiveContainer>
