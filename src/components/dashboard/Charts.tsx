@@ -27,7 +27,7 @@ export function RevenueChart() {
   return (
     <div className="h-[300px] w-full min-w-0 relative">
       <ResponsiveContainer width="100%" height="100%" minHeight={300}>
-        <AreaChart data={data}>
+        <AreaChart data={data} style={{ outline: 'none' }}>
           <defs>
             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#0070F3" stopOpacity={0.3}/>
@@ -72,7 +72,7 @@ export function DivisionPieChart() {
   return (
     <div className="h-[300px] w-full min-w-0 relative">
       <ResponsiveContainer width="100%" height="100%" minHeight={300}>
-        <PieChart>
+        <PieChart style={{ outline: 'none' }}>
           <Pie
             data={divisionData}
             cx="50%"

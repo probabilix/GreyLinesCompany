@@ -39,7 +39,7 @@ export default function AnalyticsCharts() {
         </div>
         <div className="h-[300px] w-full min-w-0 relative">
           <ResponsiveContainer width="100%" height="100%" minHeight={300}>
-            <BarChart data={conversionData} layout="vertical" margin={{ left: 40 }}>
+            <BarChart data={conversionData} layout="vertical" margin={{ left: 40 }} style={{ outline: 'none' }}>
               <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#222" />
               <XAxis type="number" hide />
               <YAxis 
@@ -75,7 +75,7 @@ export default function AnalyticsCharts() {
           </div>
           <div className="h-[300px] w-full min-w-0 relative">
             <ResponsiveContainer width="100%" height="100%" minHeight={300}>
-              <BarChart data={divisionalRevenue}>
+              <BarChart data={divisionalRevenue} style={{ outline: 'none' }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#222" />
                 <XAxis dataKey="name" stroke="#666" fontSize={12} tickLine={false} axisLine={false} />
                 <YAxis stroke="#666" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v/1000000}M`} />
@@ -98,7 +98,7 @@ export default function AnalyticsCharts() {
           </div>
           <div className="h-[300px] w-full min-w-0 relative">
             <ResponsiveContainer width="100%" height="100%" minHeight={300}>
-              <AreaChart data={acquisitionData}>
+              <AreaChart data={acquisitionData} style={{ outline: 'none' }}>
                 <defs>
                   <linearGradient id="colorAcq" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>

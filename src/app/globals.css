@@ -61,6 +61,15 @@
   }
 }
 
+/* Remove Recharts focus outlines */
+.recharts-surface:focus {
+  outline: none;
+}
+
+.recharts-wrapper:focus {
+  outline: none;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
